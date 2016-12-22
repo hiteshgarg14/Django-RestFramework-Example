@@ -1,0 +1,48 @@
+{% extends 'myapp/base.html' %}
+{% load staticfiles %}
+
+{% block cssfile %}
+<link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}"/>
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+  
+ 
+  <div class="btn-group btn-group-justified">
+    <a href="{% url 'myapp:search' %}" class="btn btn-success">Back</a>
+  </div>
+</div>
+<br><br>
+<div class="container">
+  <h2>Result</h2>
+          
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>    Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ content.id }}</td>
+        <td>{{content.title}}</td>
+        <td>{{content.desc}}</td>
+        <td>
+        <div class="container">
+        <a href="{% url 'myapp:update' pk=content.id %}" class="btn btn-warning" role="button">Update</a>
+        <a href="{% url 'myapp:delete' pk=content.id %}" class="btn btn-danger">Delete</a>
+        </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+{% endblock %}  

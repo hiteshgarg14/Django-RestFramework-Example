@@ -1,0 +1,37 @@
+{% extends 'myapp/base.html' %}
+{% load staticfiles %}
+
+{% block cssfile %}
+<link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}"/>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  
+  <div class="btn-group btn-group-justified">
+    <a href="{% url 'myapp:home' %}" class="btn btn-success">Back</a>
+  </div>
+</div>
+<div class="container">
+  <h2>Search Particular</h2><br><br>
+    {% if error %}
+      <strong>{{ error }}</strong>
+     {% endif %}
+     <br><br> 
+  <form class="form-horizontal" action="" method="post">
+  	 {% csrf_token %} 
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pk">Enter ID:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="pk" id="pk" required="true">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

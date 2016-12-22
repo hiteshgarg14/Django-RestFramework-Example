@@ -1,0 +1,8 @@
+Django==1.9.5
+argparse==1.2.1
+djangorestframework==3.5.3
+requests==2.12.4
+wsgiref==0.1.2
+dj-static==0.0.6
+gunicorn==19.6.0
+psycopg2==2.6.2
